@@ -9,11 +9,11 @@ if Config.Wagons.active then
             for i = 1, #vehiclePool do -- loop through each vehicle (entity)
                 wagon = vehiclePool[i]
                 -- Is wagon stopped
-                if IsEntityAVehicle(wagon) and IsVehicleStopped(wagon) then
+                if IsEntityAVehicle(wagon) then
                     -- Get the horse
                     horse = Citizen.InvokeNative(0xA8BA0BAE0173457B,wagon,0)
                     -- If vehicle stopped but the horse walks = buggy wagon
-                    if IsPedWalking(horse) then
+                    
                         if not IsEntityAMissionEntity(wagon) then --if the wagon is not a mission entity. Peds spawned naturally by game return false, peds created by script return true by default preventing this from deleting entities intentionally spawned by scripts
                             -- Delete driver & wagon
                             driver = Citizen.InvokeNative(0x2963B5C1637E8A27,wagon)
@@ -24,7 +24,7 @@ if Config.Wagons.active then
                                 DeleteEntity(wagon) -- Delete buggy wagon
                             end
                         end
-                    end
+                    
                 end
             end
             Citizen.Wait(1000)

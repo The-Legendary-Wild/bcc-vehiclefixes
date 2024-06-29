@@ -18,16 +18,16 @@ if Config.Wagons.active then
                             -- Delete driver & wagon
                             driver = Citizen.InvokeNative(0x2963B5C1637E8A27,wagon)
                             if driver ~= PlayerPedId() then -- Ensure the driver is not a player
-                                if driver then
-                                    DeleteEntity(driver) -- Delete driver from wagon if there is one
-                                end
+                                -- if driver then
+                                --     DeleteEntity(driver) -- Delete driver from wagon if there is one
+                                -- end
                                 DeleteEntity(wagon) -- Delete buggy wagon
                             end
                         end
                     
                 end
             end
-            Citizen.Wait(1000)
+            Citizen.Wait(100)
         end
     end)
 end
